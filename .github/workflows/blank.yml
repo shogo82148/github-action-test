@@ -9,6 +9,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - uses: shogo82148/actions-setup-perl@v0
+      with:
+        perl-version: '5.30'
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script
