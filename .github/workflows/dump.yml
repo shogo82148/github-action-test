@@ -32,4 +32,4 @@ jobs:
         run: echo "$MATRIX_CONTEXT"
       - name: show /opt
         run: |
-          ls $RUNNER_TOOL_CACHE
+          ls $RUNNER_TOOL_CACHE/Python
