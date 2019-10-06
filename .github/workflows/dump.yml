@@ -32,5 +32,4 @@ jobs:
         run: echo "$MATRIX_CONTEXT"
       - name: show /opt
         run: |
-          sudo apt-get install tree
-          tree /opt
+          ls $RUNNER_TOOL_CACHE
