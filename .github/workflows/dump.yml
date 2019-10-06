@@ -32,5 +32,5 @@ jobs:
         run: echo "$MATRIX_CONTEXT"
       - name: show /opt
         run: |
-          echo /opt
+          sudo apt-get install tree
           tree /opt
