@@ -30,3 +30,6 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
+      - name: show /opt
+        run: |
+          ls /opt
