@@ -33,6 +33,4 @@ jobs:
       - name: show /opt
         run: |
           echo /opt
-          ls /opt
-          echo RUNNER_TOOLSDIRECTORY
-          ls $RUNNER_TOOLSDIRECTORY
+          tree /opt
