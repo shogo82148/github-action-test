@@ -14,7 +14,8 @@ jobs:
         perl-version: '5.30'
     - name: Run a one-line script
       run: perl --version
+    - name: add a problem matcher
+      run: echo "::add-matcher::hogehoge.json"
     - name: Run a multi-line script
       run: |
-        echo "::add-matcher::hogehoge.json"
         perl example.pl
