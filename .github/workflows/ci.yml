@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: shogo82148/actions-setup-perl@v1
+      with:
+        perl-version: '5.30'
+    - name: Run a one-line script
+      run: perl --version
+    - name: Run a multi-line script
+      run: |
+        perl example.pl
