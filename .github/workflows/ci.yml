@@ -16,4 +16,5 @@ jobs:
       run: perl --version
     - name: Run a multi-line script
       run: |
+        echo "::add-matcher::hogehoge.json"
         perl example.pl
