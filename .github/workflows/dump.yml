@@ -4,7 +4,7 @@ on:
 
 jobs:
   one:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - name: Dump Environment Values
         run: env
@@ -32,3 +32,5 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
+      - name: Dump event.json
+        run: cat '$GITHUB_EVENT_PATH' | jq .
