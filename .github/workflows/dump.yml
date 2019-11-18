@@ -33,4 +33,4 @@ jobs:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
       - name: Dump event.json
-        run: cat '$GITHUB_EVENT_PATH' | jq .
+        run: 'cat "$GITHUB_EVENT_PATH" | jq .'
