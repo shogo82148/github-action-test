@@ -1,4 +1,4 @@
-name: CI
+name: DO NOT CREATE BRANCHES NAMED LIKE VERSION
 
 on:
   push:
