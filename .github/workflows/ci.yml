@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - uses: shogo82148/actions-upload-release-asset@v0.0.5
+    - uses: shogo82148/actions-upload-release-asset@v0.0.6
       with:
         upload_url: https://uploads.github.com/repos/shogo82148/github-action-test/releases/19669589/assets{?name,label}
         asset_path: |
