@@ -13,7 +13,7 @@ jobs:
         run: |
           jq -n '{
             attachments: [{
-              pretext: ":droid: API の定義が更新されました :apple_inc:"
+              pretext: ":droid: API の定義が更新されました :apple_inc:",
               color: "good",
               title: ${{ toJSON(github.event.pull_request.title) }},
               title_link: "${{ github.event.pull_request.html_url }}"
