@@ -1,16 +1,21 @@
-
-name: CI
-
-on: [push, pull_request]
+name: notify
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  build:
-
+  notify:
+    name: Slack Notification
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v2
-    - name: Run a multi-line script
-      run: |
-        set -x
-        git config --list
+      - name: 'Send Notification'
+        run: |
+          jq -n '{
+            attachments: [{
+              pretext: ":droid: API の定義が更新されました :apple_inc:"
+              color: "good",
+              title: ${{ toJSON(github.event.pull_request.title) }},
+              title_link: "${{ github.event.pull_request.html_url }}"
+            }]
+          }' | curl -H 'Content-Type: application/json' -d @- ${{ secrets.SLACK_WEBHOOK }}
