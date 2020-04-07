@@ -14,4 +14,4 @@ jobs:
       run: |
         set -x
         git config --list
-    - uses: actions/actions-cfn-lint@1bef48b3277ece13805a5b2eb624943cfab63e30
+    - uses: shogo82148/actions-cfn-lint@1bef48b32
