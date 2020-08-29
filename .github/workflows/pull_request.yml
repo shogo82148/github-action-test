@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-    - name: Run a multi-line script
-      run: |
-        set -x
-        git config --list
-    - uses: shogo82148/actions-cfn-lint@v1
+      - uses: shogo82148/actions-setup-perl@v1
+      - run: perl -V
+      - run: perl -V
+        shell: bash
+      - run: env
+        shell: bash
