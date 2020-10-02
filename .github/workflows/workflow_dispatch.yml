@@ -14,5 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: "ls -la ~/"
+        shell: bash
       - run: "cat ~/.bashrc || :"
+        shell: bash
       - run: "cat ~/.bash_profile || :"
+        shell: bash
