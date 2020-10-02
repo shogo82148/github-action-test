@@ -10,10 +10,9 @@ on:
 
 jobs:
   printInputs:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          echo "Log level: ${{ github.event.inputs.logLevel }}"
-          echo "Tags: ${{ github.event.inputs.tags }}"
-      - uses: ./actions/docker/
+      - run: "ls -la ~/"
+      - run: "cat ~/.bashrc || :"
+      - run: "cat ~/.bash_profile || :"
