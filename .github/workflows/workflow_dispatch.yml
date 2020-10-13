@@ -12,10 +12,11 @@ jobs:
   printInputs:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: "ls -la ~/"
-        shell: bash
-      - run: "cat ~/.bashrc || :"
-        shell: bash
-      - run: "cat ~/.bash_profile || :"
-        shell: bash
+      - run: |
+          echo @"
+          C:\strawberry\c\bin
+          C:\strawberry\perl\site\bin
+          C:\strawberry\perl\bin
+          "@ |
+            Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - run: echo $env:PATH
