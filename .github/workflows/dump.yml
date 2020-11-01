@@ -49,3 +49,9 @@ jobs:
           exit #> > $null
           Get-Content $env:GITHUB_EVENT_PATH | jq .
       - run: jq --version
+      - name: show disk space
+        run: |
+          echo `# <#`
+          df -h
+          exit #> > $null
+          Get-PSDrive
