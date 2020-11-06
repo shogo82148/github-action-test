@@ -15,6 +15,7 @@ jobs:
           tar xzf openssl.tar.gz
           cd "openssl-OpenSSL_$OPENSSL_VERSION"
           perl Configure mingw64
-          make
-          make install_sw
         shell: "msys2 {0}"
+      - run: |
+          gmake
+          gmake install
