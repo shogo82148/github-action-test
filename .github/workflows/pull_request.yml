@@ -13,7 +13,7 @@ jobs:
           cd "openssl-OpenSSL_$OPENSSL_VERSION"
           curl -L https://raw.githubusercontent.com/shogo82148/actions-setup-perl/main/bin/cpanm -o cpanm
           chmod +x cpanm
-          ./cpnam --sudo ExtUtils::Manifest
+          ./cpanm --sudo ExtUtils::Manifest
           ./cpanm --sudo Pod::Usage
           perl Configure mingw64
           gmake
