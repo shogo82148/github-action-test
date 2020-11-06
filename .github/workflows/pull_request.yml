@@ -8,6 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: msys2/setup-msys2@v2
+        with:
+          install: make mingw-w64-x86_64-gcc nasm
       - run: |
           set -eux
           OPENSSL_VERSION=1_1_1h
@@ -15,8 +17,6 @@ jobs:
           tar xzf openssl.tar.gz
           cd "openssl-OpenSSL_$OPENSSL_VERSION"
           perl Configure mingw64
+          make
+          make install
         shell: "msys2 {0}"
-      - run: |
-          cd openssl-OpenSSL_1_1_1h
-          gmake
-          gmake install
