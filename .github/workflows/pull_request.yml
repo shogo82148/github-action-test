@@ -11,7 +11,7 @@ jobs:
           curl -L https://raw.githubusercontent.com/shogo82148/actions-setup-perl/main/bin/cpanm -o cpanm
           chmod +x cpanm
           ./cpanm -L local ExtUtils::Manifest ExtUtils::MakeMaker Pod::Usage
-          export PERL5LIB=$(pwd)/local:$PERL5LIB
+          export PERL5LIB=$(pwd)/local/lib/perl5:$PERL5LIB
           OPENSSL_VERSION=1_1_1h
           curl -sSL "https://github.com/openssl/openssl/archive/OpenSSL_$OPENSSL_VERSION.tar.gz" -o openssl.tar.gz
           tar xzf openssl.tar.gz
