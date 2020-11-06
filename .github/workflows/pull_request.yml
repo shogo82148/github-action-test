@@ -17,6 +17,6 @@ jobs:
           tar xzf openssl.tar.gz
           cd "openssl-OpenSSL_$OPENSSL_VERSION"
           perl Configure --prefix="$(cygpath 'C:\OpenSSH')" mingw64
-          make
+          make "-j$(nproc)"
           make install_sw
         shell: "msys2 {0}"
