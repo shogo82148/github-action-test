@@ -17,5 +17,6 @@ jobs:
           perl Configure mingw64
         shell: "msys2 {0}"
       - run: |
+          cd openssl-OpenSSL_1_1_1h
           gmake
           gmake install
