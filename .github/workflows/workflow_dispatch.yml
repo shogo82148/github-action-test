@@ -13,10 +13,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: |
-          echo @"
-          C:\strawberry\c\bin
-          C:\strawberry\perl\site\bin
-          C:\strawberry\perl\bin
-          "@ |
-            Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-      - run: echo $env:PATH
+          OPENSSL_VERSION=1_1_1h
+          curl -sSL "https://github.com/openssl/openssl/archive/OpenSSL_$OPENSSL_VERSION.tar.gz" -o openssl.tar.gz
+          tar xzvf openssl.tar.gz
+          cd "openssl-OpenSSL_$OPENSSL_VERSION"
+          perl Configure mingw64
+          gmake
+          gmake install_sw
+        shell: bash
