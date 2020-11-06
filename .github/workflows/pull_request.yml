@@ -1,17 +1,18 @@
-
 name: CI
-
-on: [push, pull_request]
+on:
+  push:
 
 jobs:
-  build:
-
+  printInputs:
     runs-on: windows-latest
-    
     steps:
-      - uses: shogo82148/actions-setup-perl@v1
-      - run: perl -V
-      - run: perl -V
-        shell: bash
-      - run: env
+      - run: |
+          OPENSSL_VERSION=1_1_1h
+          curl -sSL "https://github.com/openssl/openssl/archive/OpenSSL_$OPENSSL_VERSION.tar.gz" -o openssl.tar.gz
+          tar xzvf openssl.tar.gz
+          cd "openssl-OpenSSL_$OPENSSL_VERSION"
+          cpanm Pod::Usage
+          perl Configure mingw64
+          gmake
+          gmake install_sw
         shell: bash
