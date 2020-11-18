@@ -7,6 +7,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - run: make --version
-      - run: gmake --version
-      - run: dmake --version
+      - run: where make
+      - run: where gmake
+      - run: where dmake
