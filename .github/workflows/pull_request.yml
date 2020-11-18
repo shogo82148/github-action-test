@@ -8,5 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: where make
+        shell: cmd
       - run: where gmake
+        shell: cmd
       - run: where dmake
+        shell: cmd
