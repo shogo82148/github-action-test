@@ -6,4 +6,7 @@ jobs:
   printInputs:
     runs-on: windows-latest
     steps:
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.24"
       - run: perl -MConfig -E 'say $Config{make}'
