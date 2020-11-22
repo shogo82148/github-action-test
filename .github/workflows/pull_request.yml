@@ -4,7 +4,11 @@ on:
 
 jobs:
   printInputs:
-    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: shogo82148/actions-setup-perl@v1
         with:
