@@ -14,4 +14,4 @@ jobs:
         with:
           perl-version: "5.24"
           distribution: strawberry
-      - run: perl -MConfig -E 'say $Config{make}'
+      - run: perl -e 'system("echo", "foobar");'
