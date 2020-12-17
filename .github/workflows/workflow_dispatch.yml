@@ -1,23 +1,8 @@
 on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: "Log level"
-        required: true
-        default: "warning"
-      tags:
-        description: "Test scenario tags"
+  push:
 
 jobs:
   printInputs:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
-      - run: |
-          OPENSSL_VERSION=1_1_1h
-          curl -sSL "https://github.com/openssl/openssl/archive/OpenSSL_$OPENSSL_VERSION.tar.gz" -o openssl.tar.gz
-          tar xzvf openssl.tar.gz
-          cd "openssl-OpenSSL_$OPENSSL_VERSION"
-          perl Configure mingw64
-          gmake
-          gmake install_sw
-        shell: bash
+      - run: bash --version
