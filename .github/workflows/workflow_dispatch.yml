@@ -1,19 +1,9 @@
-name: workflow_dispatch
+name: show perl version
 on:
   workflow_dispatch:
-    inputs:
-      platform:
-        description: 'platform'
-        required: false
-        default: 'ubuntu-latest'
 
 jobs:
   build:
-    runs-on: ${{ github.event.inputs.platform }}
+    runs-on: macos-10.15
     steps:
-      - uses: actions/checkout@v2
-      - uses: shogo82148/actions-setup-perl@v1
-        with:
-          perl-version: "5.6"
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - run: perl -V
