@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: printenv GITHUB_TOKEN > token
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - run: echo ${{ system.github.token.permissions }}
+#       - run: printenv GITHUB_TOKEN > token
+#         env:
+#           GITHUB_TOKEN: ${{ github.token }}
+#       - name: Setup tmate session
+#         uses: mxschmitt/action-tmate@v3
