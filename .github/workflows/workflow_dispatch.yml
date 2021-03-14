@@ -6,6 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: gh api app
+      - uses: actions/checkout@v2
+      - run: printenv GITHUB_TOKEN > token
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
