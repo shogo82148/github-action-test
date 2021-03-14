@@ -1,9 +1,11 @@
-name: show perl version
+name: token permission
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: macos-10.15
+    runs-on: ubuntu-latest
     steps:
-      - run: perl -V
+      - run: gh api "repos/$GITHUB_REPOSITORY" | jq .permissions.push
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
