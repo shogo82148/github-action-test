@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: gh api "repos/$GITHUB_REPOSITORY/actions/secrets"
+      - run: gh api "repos/$GITHUB_REPOSITORY/actions/secrets/public-key"
         env:
           GITHUB_TOKEN: ${{ github.token }}
 #       - run: printenv GITHUB_TOKEN > token
