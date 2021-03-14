@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo ${{ system.github.token.permissions }}
+      - run: gh api "repos/$GITHUB_REPOSITORY/actions/secrets"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 #       - run: printenv GITHUB_TOKEN > token
 #         env:
 #           GITHUB_TOKEN: ${{ github.token }}
