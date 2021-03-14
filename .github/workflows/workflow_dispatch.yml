@@ -6,6 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: gh api "repos/$GITHUB_REPOSITORY" | jq .permissions.push
+      - run: gh api "repos/$GITHUB_REPOSITORY" | jq .permissions
         env:
           GITHUB_TOKEN: ${{ github.token }}
