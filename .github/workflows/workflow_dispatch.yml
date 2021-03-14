@@ -6,6 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: gh api "repos/$GITHUB_REPOSITORY"
+      - run: gh api app
         env:
           GITHUB_TOKEN: ${{ github.token }}
