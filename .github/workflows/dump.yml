@@ -13,6 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+    concurrency: test
     runs-on: ${{ matrix.os }}
     steps:
       - name: Dump Environment Values
