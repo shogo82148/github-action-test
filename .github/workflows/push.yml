@@ -19,5 +19,7 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
           install-modules-with: cpanm
-          install-modules: Module::Build DateTime
+          install-modules: |
+            Module::Build
+            DateTime
   
