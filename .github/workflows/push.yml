@@ -18,6 +18,6 @@ jobs:
         uses: shogo82148/actions-setup-perl@v1.12.0-rc1
         with:
           perl-version: ${{ matrix.perl }}
-          install-modules-with: cpm
-          install-modules: DateTime
+          install-modules-with: cpanm
+          install-modules: Module::Build DateTime
   
