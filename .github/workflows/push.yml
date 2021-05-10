@@ -19,7 +19,7 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
           install-modules-with: cpanm
-          enable-modules-cahce: false
+          enable-modules-cache: false
           install-modules: |
             ExtUtils::MakeMaker
             Module::Build
