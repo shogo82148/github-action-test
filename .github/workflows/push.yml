@@ -19,7 +19,9 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
           install-modules-with: cpanm
+          enable-modules-cahce: false
           install-modules: |
+            ExtUtils::MakeMaker
             Module::Build
             DateTime
   
