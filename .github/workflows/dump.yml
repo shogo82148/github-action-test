@@ -18,7 +18,9 @@ jobs:
       - name: Show the version of bash
         run: bash --version
       - name: PIPESTATUS
+        shell: bash
         run: |
+          set +Eeuo pipefail
           exit 2 | exit 1 | exit 0
           echo  ${PIPESTATUS[@]}
       - name: Dump Environment Values
