@@ -17,6 +17,10 @@ jobs:
     steps:
       - name: Show the version of bash
         run: bash --version
+      - name: PIPESTATUS
+        run: |
+          exit 2 | exit 1 | exit 0
+          echo  ${PIPESTATUS[@]}
       - name: Dump Environment Values
         run: env
       - name: Dump GitHub context
