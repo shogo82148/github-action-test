@@ -1,19 +1,18 @@
 name: release
 
 on:
-  release:
-    types:
-      - created
+  push:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: shogo82148/actions-upload-release-asset@v0.0.6
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: |
-          .github/workflows/*.yml
+      - uses: actions/checkout@v2
+      - id: gen
+        uses: shogo82148/actions-github-app-token@v0
+      - run: |
+          gh issue create --title "I found a bug" --body "Nothing works"
+          echo "GITHUB_TOKEN"
+        env:
+          GITHUB_TOKEN: ${{ steps.gen.outputs.token }}
