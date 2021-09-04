@@ -14,6 +14,6 @@ jobs:
         uses: shogo82148/actions-github-app-token@v0
       - run: |
           gh issue create --title "I found a bug" --body "Nothing works"
-          echo "GITHUB_TOKEN"
+          echo "$GITHUB_TOKEN"
         env:
           GITHUB_TOKEN: ${{ steps.gen.outputs.token }}
