@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - id: gen
         uses: shogo82148/actions-github-app-token@v0
+        with:
+          audience: foobar
       - run: |
           gh issue create --title "I found a bug" --body "Nothing works"
           echo "$GITHUB_TOKEN"
