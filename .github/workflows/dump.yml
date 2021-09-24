@@ -17,12 +17,6 @@ jobs:
     steps:
       - name: Show the version of bash
         run: bash --version
-      - name: PIPESTATUS
-        shell: bash
-        run: |
-          set +Eeuo pipefail
-          exit 2 | exit 1 | exit 0
-          echo  ${PIPESTATUS[@]}
       - name: Dump Environment Values
         run: env
       - name: Dump GitHub context
@@ -60,7 +54,7 @@ jobs:
       - run: jq --version
       - run: go version
       - run: |
-          curl -H "Metadata: true" http://169.254.169.254/metadata/instance?api-version=2020-09-01 | jq .
+          curl --connect-timeout 0.5 -H "Metadata: true" http://169.254.169.254/metadata/instance?api-version=2020-09-01 | jq .
       - name: show disk space
         run: |
           echo `# <#`
