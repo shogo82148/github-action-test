@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      statuses: write
+      contents: read
     steps:
       - name: Configure AWS
         uses: fuller-inc/actions-aws-assume-role@v1.3.0-beta1
