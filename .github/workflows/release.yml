@@ -13,7 +13,7 @@ jobs:
       contents: read
     steps:
       - name: Configure AWS
-        uses: fuller-inc/actions-aws-assume-role@v1.3.0-beta1
+        uses: fuller-inc/actions-aws-assume-role@v1.3.0-beta2
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::445285296882:role/github-action-test
