@@ -64,3 +64,4 @@ jobs:
           df -h
           exit #> > $null
           Get-PSDrive
+      - run: tar --version
