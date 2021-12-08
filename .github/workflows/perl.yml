@@ -1,0 +1,49 @@
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  perl:
+    fail-fast: false
+    matrix:
+      perl:
+        - '5.34'
+        - '5.32'
+        - '5.30'
+        - '5.28'
+        - '5.26'
+        - '5.24'
+        - '5.22'
+        - '5.20'
+        - '5.18'
+        - '5.16'
+        - '5.14'
+        - '5.12'
+        - '5.10'
+        - '5.8'
+        - '5.6'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl }}
+          install-modules: Try::Tiny
+      - shell: perl {0}
+        run: |
+          use strict;
+          use warnings;
+          use Carp qw(croak);
+          use Try::Tiny;
+
+          sub do_something {
+              try {
+                  croak "something wrong";
+              } catch {
+                  print "catch: $_";
+              };
+          }
+
+          do_something();
+
+          1;
