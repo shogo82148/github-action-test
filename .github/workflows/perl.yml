@@ -29,6 +29,7 @@ jobs:
       - uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
+          install-modules-with: cpanm
           install-modules: Try::Tiny
       - shell: "perl {0}"
         run: |
