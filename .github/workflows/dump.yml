@@ -64,6 +64,7 @@ jobs:
           Get-Content $env:GITHUB_EVENT_PATH | jq .
       - run: jq --version
       - run: go version
+      - run: gcc --version
       - run: |
           curl --connect-timeout 0.5 -H "Metadata: true" http://169.254.169.254/metadata/instance?api-version=2020-09-01 | jq .
       - name: show disk space
