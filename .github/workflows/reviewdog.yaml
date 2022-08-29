@@ -5,8 +5,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  actionlint:
+    runs-on: "ubuntu-latest"
     steps:
-      - name: golangci-lint
-        uses: reviewdog/action-golangci-lint@v2
+      - uses: actions/checkout@v3
+      - uses: reviewdog/action-actionlint@v1
+        with:
+          actionlint_flags: -ignore 'label ".+" is unknown' -ignore '".+" is potentially untrusted'
+          reporter: github-pr-review
