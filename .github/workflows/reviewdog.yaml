@@ -9,7 +9,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v3
-      - uses: reviewdog/action-actionlint@v1
+      - uses: reviewdog/action-actionlint@ebd5ca3d808358aeb51c7a677a92bc790306b55d
         with:
           actionlint_flags: -ignore 'label ".+" is unknown' -ignore '".+" is potentially untrusted'
           reporter: github-pr-review
