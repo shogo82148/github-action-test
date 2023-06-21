@@ -5,14 +5,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
-    environment: test
     steps:
-      - uses: actions/checkout@v2
-      - run: printenv GITHUB_TOKEN > token
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/checkout@v3
+      - name: Setup MySQL
+        uses: shogo82148/actions-setup-mysql@v1.16.0
+        with:
+          auto-start: true
+          distribution: 'mysql'
+          mysql-version: '8.0'
+          my-conf: |
+            default-authentication-plugin=mysql_native_password
+            sync_binlog=0
+            innodb_doublewrite=OFF
+            innodb-flush-log-at-trx-commit=0
+            innodb-flush-method=nosync
+          user: user
+          root-password: root
+          password: password
+
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
