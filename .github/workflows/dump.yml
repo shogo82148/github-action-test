@@ -18,7 +18,6 @@ jobs:
           - ubuntu-18.04
           - windows-2022
           - windows-2019
-          - macos-13-xlarge
           - macos-13
           - macos-12
           - macos-11
