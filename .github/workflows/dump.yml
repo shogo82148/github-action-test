@@ -18,10 +18,10 @@ jobs:
           - ubuntu-18.04
           - windows-2022
           - windows-2019
+          - macos-14
           - macos-13
           - macos-12
           - macos-11
-          - macos-10.5
     runs-on: ${{ matrix.os }}
     steps:
       - name: workflow commands
