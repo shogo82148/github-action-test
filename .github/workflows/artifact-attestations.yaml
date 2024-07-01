@@ -2,10 +2,14 @@ on:
   pull_request:
     paths:
       - .github/workflows/artifact-attestations.yaml
+  workflow_dispatch:
 
 jobs:
   attestation:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        num: [0, 1, 2, 3, 4, 5, 6, 7, 9]
 
     permissions:
       id-token: write
@@ -13,15 +17,15 @@ jobs:
       contents: read
 
     steps:
-      - run: date > date.txt
+      - run: echo "Hello World!" > hello${{ matrix.num }}.txt
 
       - name: Attest Build Provenance
         uses: actions/attest-build-provenance@v1
         with:
-          subject-path: "date.txt"
+          subject-path: "*.txt"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: date.txt
+          path: hello${{ matrix.num }}.txt
