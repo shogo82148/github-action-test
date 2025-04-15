@@ -1,4 +1,4 @@
-name: tmate
+name: perl
 
 on:
   workflow_dispatch:
