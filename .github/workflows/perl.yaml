@@ -6,31 +6,10 @@ on:
 jobs:
   setup-perl:
     runs-on: "windows-latest"
-    strategy:
-      fail-fast: false
-      matrix:
-        perl:
-          - "5.40"
-          - "5.38"
-          - "5.36"
-          - "5.34"
-          - "5.32"
-          - "5.30"
-          - "5.28"
-          - "5.26"
-          - "5.24"
-          - "5.22"
-          - "5.20"
-          - "5.18"
-          - "5.16"
-          - "5.14"
-          - "5.12"
-          - "5.10"
-          - "5.8"
-          - "5.6"
     steps:
-      - uses: shogo82148/actions-setup-perl@v1
-        with:
-          perl-version: ${{ matrix.perl }}
-          distribution: strawberry
-      - run: cpanm Data::Validate::IP
+      - run: |
+          curl -O https://cpan.metacpan.org/authors/id/B/BO/BOOK/perl-5.42.0.tar.gz
+          tar xzvf perl-5.42.0.tar.gz
+          cd perl-5.42.0/win32
+          gmake SKIP_CCHOME_CHECK=1 USE_ITHREADS=undef
+        shell: bash
