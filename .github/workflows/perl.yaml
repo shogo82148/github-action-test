@@ -10,5 +10,6 @@ jobs:
       - run: |
           git clone https://github.com/Perl/perl5.git
           cd perl5/win32
+          git checkout 96784b083ca7e05f6efd2432edf2b56590d70d4e
           gmake SKIP_CCHOME_CHECK=1 USE_ITHREADS=undef
         shell: bash
