@@ -8,8 +8,7 @@ jobs:
     runs-on: "windows-latest"
     steps:
       - run: |
-          curl -O https://cpan.metacpan.org/authors/id/B/BO/BOOK/perl-5.42.0.tar.gz
-          tar xzvf perl-5.42.0.tar.gz
-          cd perl-5.42.0/win32
+          git clone https://github.com/Perl/perl5.git
+          cd perl5/win32
           gmake SKIP_CCHOME_CHECK=1 USE_ITHREADS=undef
         shell: bash
