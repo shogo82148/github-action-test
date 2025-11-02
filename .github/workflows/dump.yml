@@ -17,6 +17,7 @@ jobs:
           - ubuntu-22.04
           - ubuntu-24.04-arm
           - ubuntu-22.04-arm
+          - ubuntu-slim
           - windows-2025
           - windows-2022
           - windows-11-arm
