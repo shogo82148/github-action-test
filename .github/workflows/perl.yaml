@@ -7,7 +7,7 @@ jobs:
   setup-perl:
     runs-on: "windows-latest"
     steps:
-      - uses: shogo82148/actions-setup-perl@v1
+      - uses: shogo82148/actions-setup-perl@debug
         with:
           distribution: strawberry
           perl-version: "5.34"
