@@ -29,6 +29,6 @@ jobs:
   tmate:
     runs-on: ${{ inputs.os }}
     steps:
-      - uses: mxschmitt/action-tmate@v3
+      - uses: owenthereal/action-upterm@v2
         env:
           GH_TOKEN: ${{ github.token }}
